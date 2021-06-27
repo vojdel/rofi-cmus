@@ -9,7 +9,6 @@ else
   play_pause=""
   playpause="Pause"
 fi
-
 active=""
 urgent=""
 
