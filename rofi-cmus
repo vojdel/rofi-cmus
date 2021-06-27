@@ -39,8 +39,11 @@ else
 fi
 
 # Spawn the mpd menu with the "Play / Pause" entry selected by default
-chosen="$(echo -e "$options" | rofi -theme "$1" -p "$current" -dmenu $active $urgent -selected-row 1)"
-
+if [[ -n "$1" ]];then
+  chosen="$(echo -e "$options" | rofi -theme "$1" -p "$current" -dmenu $active $urgent -selected-row 1)"
+else
+  chosen="$(echo -e "$options" | rofi -p "$current" -dmenu $active $urgent -selected-row 1)"
+fi
 case $chosen in
     $previous)
         cmus-remote --prev
